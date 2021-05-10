@@ -1,58 +1,28 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 
 
+import NavBar from "./components/layout/NavBar";
+import Dashboard from "./components/layout/Dashboard";
 
-const App = () => {
-  
-  const [error, setError] = useState(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [items, setItems] = useState([]);
 
-  
-  useEffect(() => {
-    fetch("https://api.example.com/items")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          setIsLoaded(true);
-          setItems(result);
-        },
-     
-        (error) => {
-          setIsLoaded(true);
-          setError(error);
-        }
-      )
-  }, [])
 
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
-  } else {
+class App extends Component {
+  render() {
     return (
-      <ul>
-        {items.map(item => (
-          <li key={item.id}>
-            {item.name} {item.price}
-          </li>
-        ))}
-      </ul>
-    );
+      <div className = "App">
+          <NavBar />
+        <div className = "container">
+          <Dashboard />
+        </div>
+      </div>
+    )
   }
-  return(
-    <div>
-
-    </div>
-  );
+}
 
 
-};
 
-
-  
 
 export default App;
 
