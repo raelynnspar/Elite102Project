@@ -6,7 +6,7 @@ import './App.css';
 
 import NavBar from "./components/layout/NavBar";
 import Dashboard from "./components/layout/Dashboard";
-import Pokemon from '.?components/pokemon/Pokemon';
+import Pokemon from './components/pokemon/Pokemon';
 
 
 
